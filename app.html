@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <head {{ HEAD_ATTRS }}>
+      <script>
+         /* if('CSS' in window && CSS.supports('color', 'var(--color-var)')) {
+            document.write('<link rel="stylesheet" href="~/assets/css/style.css">');
+          } else {
+            document.write('<link rel="stylesheet" href="~/assets/css/style-fallback.css">');
+          } */
+        </script>
+    {{ HEAD }}
+  </head>
+  <body {{ BODY_ATTRS }}>
+    {{ APP }}
+  </body>
+</html>

@@ -1,0 +1,149 @@
+/* -------------------------------- 
+
+File#: _1_responsive-sidebar
+Title: Responsive Sidebar
+Descr: Responsive sidebar container
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  // default -> sidebar controlled by button (optimized for smaller screens)
+  --sidebar-width: 100%;
+  --sidebar-max-width: 380px;
+
+  // static variation -> sidebar is always visible (optimized for bigger screens)
+  --sidebar-static-width: 100%;
+  --sidebar-static-max-width: 380px;
+  --sidebar-static-height: 100vh;
+  --sidebar-static-min-height: 0;
+}
+
+.sidebar, .sidebar__panel {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: alpha(var(--color-black), 0);
+  visibility: hidden;
+  transition: background-color .3s, visibility 0s .3s;
+  flex-shrink: 0;
+  
+  &:not(.sidebar--static) {
+    position: fixed;
+  }
+}
+
+.sidebar--is-visible {
+  background-color: alpha(var(--color-black), 0.85);
+  visibility: visible;
+  transition: background-color .3s;
+}
+
+.sidebar__panel { // content
+  position: absolute;
+  width: var(--sidebar-width);
+  max-width: var(--sidebar-max-width);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  transform: translateX(-100%);
+  transition: .3s;
+
+  .sidebar--is-visible & {
+    transform: translateX(0);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--component-padding);
+  border-bottom: 2px solid var(--color-contrast-lower);
+}
+
+.sidebar__close-btn {
+  width: 2em;
+  height: 2em;
+  display: flex;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  transition: .2s;
+  flex-shrink: 0;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .icon {
+    display: block;
+    color: var(--color-contrast-high);
+    margin: auto;
+  }
+}
+
+.sidebar__content {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+// --static
+.sidebar--static {
+  background-color: var(--color-bg);
+  visibility: visible;
+  transition: none;
+  width: var(--sidebar-static-width);
+  max-width: var(--sidebar-static-max-width);
+  height: var(--sidebar-static-height);
+  min-height: var(--sidebar-static-min-height);
+  border-right: 1px solid var(--color-contrast-low);
+
+  .sidebar__panel {
+    position: static;
+    display: block;
+    background-color: transparent;
+    transform: translateX(0);
+    transition: none;
+    box-shadow: none;
+  }
+
+  .sidebar__header {
+    @include srHide;
+  }
+
+  .sidebar__close-btn {
+    display: none;
+  }
+}
+
+.js {
+  .sidebar {
+    opacity: 0; // hide sidebar while it is initialized in JS
+  }
+
+  .sidebar--loaded {
+    opacity: 1;
+  }
+}
+
+// detect when the sidebar needs to switch from the mobile layout to a static one - used in JS
+[class*="sidebar--static"]::before {
+  display: none;
+}
+
+@each $mq in 'xs' 'sm' 'md' 'lg' 'xl' {
+  .sidebar--static\@#{$mq}::before {
+    content: 'mobile';
+    @include breakpoint(#{$mq}) {
+      content: 'static';
+    }
+  }
+}
