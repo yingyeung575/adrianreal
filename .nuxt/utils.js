@@ -150,7 +150,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {"backendurl":"http://whostsite.com/","frontendurl":"http://front.whostsite.com/"}
+      env: {"backendurl":"https://whostsite.com/","frontendurl":"https://vigilant-perlman-c214ff.netlify.app/"}
     }
     // Only set once
     if (context.req) {

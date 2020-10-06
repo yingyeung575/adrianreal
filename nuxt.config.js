@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 export default {
   mode: 'universal',
   /*
@@ -71,5 +71,13 @@ export default {
  /* router: {
       base: '/adrian/adrian-nuxt/'
   } */
-  
+  generate: {
+    routes() {
+      return axios.get('https://whostsite.com/talks').then(res => {
+        return res.data.map(post => {
+          return '/events/' + post.slug
+        })
+      })
+    }
+  }
 }
