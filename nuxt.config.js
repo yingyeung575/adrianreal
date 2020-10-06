@@ -72,19 +72,26 @@ export default {
       base: '/adrian/adrian-nuxt/'
   } */
   generate: {
-    routes() {
-    /*  return axios.get('https://whostsite.com/talks').then(res => {
-        return res.data.map(post => {
-          return '/events/' + post.slug
-        })
-      }) */
-      const routesforEvents = axios.get('https://whostsite.com/talks').then(res => {
-        return res.data.map(post => {
-          return '/events/' + post.slug
-        })
-      }) 
+    async routes() {
+ 
+      const resforEvents = await axios.get('https://whostsite.com/talks')
+      
+      const routesforEvents = resforEvents.data.map(post => {
+          return {
+            route: '/events/' + post.slug,
+            payload: post
+          }
+      })
 
-      const routes = routesforEvents
+      const noofpost = 10
+      const noofpage =  routesforEvents.length / noofpost
+      
+      let routesforEventsIndex = []
+      for (var i = 1; i < noofpage + 1; i++) {
+         routesforEventsIndex.push('/events/?page='+ i)
+      } 
+
+      const routes = routesforEvents.concat(routesforEventsIndex)
       return routes
 
     }
