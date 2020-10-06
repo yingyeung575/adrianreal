@@ -88,7 +88,7 @@ export default {
       
       let routesforEventsIndex = []
       for (var i = 1; i < noofpage + 1; i++) {
-         routesforEventsIndex.push('/events/?page='+ i)
+         routesforEventsIndex.push('/events/page/'+ i)
       } 
 
       const routes = routesforEvents.concat(routesforEventsIndex)
