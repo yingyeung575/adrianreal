@@ -73,11 +73,20 @@ export default {
   } */
   generate: {
     routes() {
-      return axios.get('https://whostsite.com/talks').then(res => {
+    /*  return axios.get('https://whostsite.com/talks').then(res => {
         return res.data.map(post => {
           return '/events/' + post.slug
         })
-      })
+      }) */
+      const routesforEvents = axios.get('https://whostsite.com/talks').then(res => {
+        return res.data.map(post => {
+          return '/events/' + post.slug
+        })
+      }) 
+
+      const routes = routesforEvents
+      return routes
+
     }
   }
 }
