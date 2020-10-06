@@ -27,6 +27,7 @@ const _39171801 = () => interopDefault(import('../pages/school-type/university/i
 const _200007fa = () => interopDefault(import('../pages/school-type/foundation/step2.vue' /* webpackChunkName: "pages/school-type/foundation/step2" */))
 const _0f2e7a3e = () => interopDefault(import('../pages/school-type/international-one/step2.vue' /* webpackChunkName: "pages/school-type/international-one/step2" */))
 const _9248cfd6 = () => interopDefault(import('../pages/school-type/university/step2.vue' /* webpackChunkName: "pages/school-type/university/step2" */))
+const _a16f4900 = () => interopDefault(import('../pages/events/page/_page.vue' /* webpackChunkName: "pages/events/page/_page" */))
 const _b49c3ce6 = () => interopDefault(import('../pages/article/_slug.vue' /* webpackChunkName: "pages/article/_slug" */))
 const _45dbd4fc = () => interopDefault(import('../pages/boarding-school/_slug.vue' /* webpackChunkName: "pages/boarding-school/_slug" */))
 const _75dce2b0 = () => interopDefault(import('../pages/case-analysis/_slug.vue' /* webpackChunkName: "pages/case-analysis/_slug" */))
@@ -153,6 +154,10 @@ export const routerOptions = {
     path: "/school-type/university/step2",
     component: _9248cfd6,
     name: "school-type-university-step2"
+  }, {
+    path: "/events/page/:page?",
+    component: _a16f4900,
+    name: "events-page-page"
   }, {
     path: "/article/:slug",
     component: _b49c3ce6,

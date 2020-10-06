@@ -83,7 +83,7 @@ export default {
           }
       })
 
-      const noofpost = 10
+      const noofpost = 9
       const noofpage =  routesforEvents.length / noofpost
       
       let routesforEventsIndex = []
