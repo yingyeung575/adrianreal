@@ -65,8 +65,8 @@ export default {
     }
   },
   env: {
-    backendurl: 'http://whostsite.com/',
-    frontendurl: 'http://front.whostsite.com/'
+    backendurl: 'https://whostsite.com/',
+    frontendurl: 'https://vigilant-perlman-c214ff.netlify.app/'
   },
  /* router: {
       base: '/adrian/adrian-nuxt/'
