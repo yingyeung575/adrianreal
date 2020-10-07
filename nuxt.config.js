@@ -136,9 +136,39 @@ export default {
           }
       })
 
+      // areas
+      const resforAreas = await axios.get('https://whostsite.com/areas')
+      
+      const routesforAreas = resforAreas.data.map(post => {
+          return {
+            route: '/clearing/' + post.slug,
+            payload: post
+          }
+      })
+
+      // articles
+      const resforArticles = await axios.get('https://whostsite.com/articles')
+      
+      const routesforArticles = resforArticles.data.map(post => {
+          return {
+            route: '/article/' + post.slug,
+            payload: post
+          }
+      })
+
+      const noofpageArticles =  routesforArticles.length / 10
+      
+      let routesforArticlesIndex = []
+      for (var i = 1; i < noofpageArticles  + 1; i++) {
+        routesforArticlesIndex.push('/article/page/'+ i)
+      } 
+
 
       const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
-      .concat(routesforSubjects)
+      .concat(routesforSubjects).concat(routesforAreas)
+      .concat(routesforArticles).concat(routesforArticlesIndex)
+
+      
       return routes
 
     }
