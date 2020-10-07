@@ -74,6 +74,7 @@ export default {
   generate: {
     async routes() {
  
+      // events
       const resforEvents = await axios.get('https://whostsite.com/talks')
       
       const routesforEvents = resforEvents.data.map(post => {
@@ -91,7 +92,24 @@ export default {
          routesforEventsIndex.push('/events/page/'+ i)
       } 
 
-      const routes = routesforEvents.concat(routesforEventsIndex)
+      // case
+      const resforCases = await axios.get('https://whostsite.com/cases')
+      
+      const routesforCases = resforCases.data.map(post => {
+          return {
+            route: '/case-analysis/' + post.slug,
+            payload: post
+          }
+      })
+
+      const noofpagecase =  routesforCases.length / 10
+      
+      let routesforCasesIndex = []
+      for (var i = 1; i < noofpagecase  + 1; i++) {
+         routesforCasesIndex.push('/case-analysis/page/'+ i)
+      } 
+
+      const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex)
       return routes
 
     }

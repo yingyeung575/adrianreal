@@ -27,11 +27,13 @@ const _39171801 = () => interopDefault(import('../pages/school-type/university/i
 const _200007fa = () => interopDefault(import('../pages/school-type/foundation/step2.vue' /* webpackChunkName: "pages/school-type/foundation/step2" */))
 const _0f2e7a3e = () => interopDefault(import('../pages/school-type/international-one/step2.vue' /* webpackChunkName: "pages/school-type/international-one/step2" */))
 const _9248cfd6 = () => interopDefault(import('../pages/school-type/university/step2.vue' /* webpackChunkName: "pages/school-type/university/step2" */))
+const _528311fb = () => interopDefault(import('../pages/article/page/_page.vue' /* webpackChunkName: "pages/article/page/_page" */))
+const _546b6290 = () => interopDefault(import('../pages/case-analysis/page/_page.vue' /* webpackChunkName: "pages/case-analysis/page/_page" */))
 const _a16f4900 = () => interopDefault(import('../pages/events/page/_page.vue' /* webpackChunkName: "pages/events/page/_page" */))
+const _bba3f0f4 = () => interopDefault(import('../pages/news/page/_page.vue' /* webpackChunkName: "pages/news/page/_page" */))
 const _b49c3ce6 = () => interopDefault(import('../pages/article/_slug.vue' /* webpackChunkName: "pages/article/_slug" */))
 const _45dbd4fc = () => interopDefault(import('../pages/boarding-school/_slug.vue' /* webpackChunkName: "pages/boarding-school/_slug" */))
 const _75dce2b0 = () => interopDefault(import('../pages/case-analysis/_slug.vue' /* webpackChunkName: "pages/case-analysis/_slug" */))
-const _4af29b8d = () => interopDefault(import('../pages/category/_slug.vue' /* webpackChunkName: "pages/category/_slug" */))
 const _ac404f78 = () => interopDefault(import('../pages/clearing/_slug.vue' /* webpackChunkName: "pages/clearing/_slug" */))
 const _77ebf8e8 = () => interopDefault(import('../pages/events/_slug.vue' /* webpackChunkName: "pages/events/_slug" */))
 const _2216e602 = () => interopDefault(import('../pages/foundation/_slug.vue' /* webpackChunkName: "pages/foundation/_slug" */))
@@ -40,6 +42,7 @@ const _1c806122 = () => interopDefault(import('../pages/news/_slug.vue' /* webpa
 const _5011c37a = () => interopDefault(import('../pages/subject/_slug.vue' /* webpackChunkName: "pages/subject/_slug" */))
 const _326361e9 = () => interopDefault(import('../pages/summer-school/_slug.vue' /* webpackChunkName: "pages/summer-school/_slug" */))
 const _1f5baeea = () => interopDefault(import('../pages/university-school/_slug.vue' /* webpackChunkName: "pages/university-school/_slug" */))
+const _5aa26e28 = () => interopDefault(import('../pages/category/_slug/_page.vue' /* webpackChunkName: "pages/category/_slug/_page" */))
 const _60c09ea4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -155,9 +158,21 @@ export const routerOptions = {
     component: _9248cfd6,
     name: "school-type-university-step2"
   }, {
+    path: "/article/page/:page?",
+    component: _528311fb,
+    name: "article-page-page"
+  }, {
+    path: "/case-analysis/page/:page",
+    component: _546b6290,
+    name: "case-analysis-page-page"
+  }, {
     path: "/events/page/:page?",
     component: _a16f4900,
     name: "events-page-page"
+  }, {
+    path: "/news/page/:page?",
+    component: _bba3f0f4,
+    name: "news-page-page"
   }, {
     path: "/article/:slug",
     component: _b49c3ce6,
@@ -170,10 +185,6 @@ export const routerOptions = {
     path: "/case-analysis/:slug?",
     component: _75dce2b0,
     name: "case-analysis-slug"
-  }, {
-    path: "/category/:slug?",
-    component: _4af29b8d,
-    name: "category-slug"
   }, {
     path: "/clearing/:slug?",
     component: _ac404f78,
@@ -206,6 +217,10 @@ export const routerOptions = {
     path: "/university-school/:slug?",
     component: _1f5baeea,
     name: "university-school-slug"
+  }, {
+    path: "/category/:slug?/:page?",
+    component: _5aa26e28,
+    name: "category-slug-page"
   }, {
     path: "/",
     component: _60c09ea4,
