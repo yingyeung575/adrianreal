@@ -74,7 +74,7 @@ export default {
   generate: {
     async routes() {
  
-      /*
+      
       // events
       const resforEvents = await axios.get('https://whostsite.com/talks')
       
@@ -163,9 +163,9 @@ export default {
       for (var i = 1; i < noofpageArticles  + 1; i++) {
         routesforArticlesIndex.push('/article/page/'+ i)
       } 
-
-      */
-
+      
+    
+      // articles category
 
       const resforCategory = await axios.get('https://whostsite.com/categories')
       
@@ -176,14 +176,25 @@ export default {
           }
       })
 
-   /*   const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
+
+      let routesforCategoryIndex = []
+      routesforCategory.forEach(
+        element => {
+          for (var i = 1; i < 10 ; i++) {
+            routesforCategoryIndex.push(element.route+'/'+ i)
+          } 
+        }
+      )
+      
+     
+
+      const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
       .concat(routesforSubjects).concat(routesforAreas)
       .concat(routesforArticles).concat(routesforArticlesIndex)
-      .concat(routesforCategory)
-  */
-
-      const routes = routesforCategory
-      
+      .concat(routesforCategory).concat(routesforCategoryIndex)
+    
+  
+    //  const routes = routesforCategoryIndex
       return routes
 
     }
