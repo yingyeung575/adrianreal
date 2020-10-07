@@ -164,9 +164,18 @@ export default {
       } 
 
 
+      const resforCategory = await axios.get('https://whostsite.com/categories')
+      
+      const routesforCategory = resforCategory.data.map(post => {
+          return {
+            route: '/category/' + post.slug,
+            payload: post
+          }
+      })
+
       const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
       .concat(routesforSubjects).concat(routesforAreas)
-      .concat(routesforArticles).concat(routesforArticlesIndex)
+      .concat(routesforArticles).concat(routesforArticlesIndex).concat(routesforCategory)
 
       
       return routes
