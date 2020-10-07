@@ -177,21 +177,22 @@ export default {
       })
 
 
-      let routesforCategoryIndex = []
+  /*    let routesforCategoryIndex = []
       routesforCategory.forEach(
         element => {
           for (var i = 1; i < 10 ; i++) {
             routesforCategoryIndex.push(element.route+'/'+ i)
           } 
         }
-      )
+      ) */
       
      
 
       const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
       .concat(routesforSubjects).concat(routesforAreas)
       .concat(routesforArticles).concat(routesforArticlesIndex)
-      .concat(routesforCategory).concat(routesforCategoryIndex)
+      .concat(routesforCategory)
+     // .concat(routesforCategoryIndex)
     
   
     //  const routes = routesforCategoryIndex
