@@ -126,7 +126,19 @@ export default {
         routesforNewsIndex.push('/news/page/'+ i)
       } 
 
+      // subjects
+      const resforSubjects = await axios.get('https://whostsite.com/subjecttutorings')
+      
+      const routesforSubjects = resforSubjects.data.map(post => {
+          return {
+            route: '/subject/' + post.slug,
+            payload: post
+          }
+      })
+
+
       const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
+      .concat(routesforSubjects)
       return routes
 
     }
