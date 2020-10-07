@@ -176,26 +176,35 @@ export default {
           }
       })
 
+      let routesforCategoryIndex = []
+      routesforCategoryIndex.push('/category/way/1')
+      routesforCategoryIndex.push('/category/way/2')
+      routesforCategoryIndex.push('/category/way/3')
+      routesforCategoryIndex.push('/category/way/4')
+      routesforCategoryIndex.push('/category/way/5')
+      routesforCategoryIndex.push('/category/boarding-school/1')
+      routesforCategoryIndex.push('/category/boarding-school/2')  
+      routesforCategoryIndex.push('/category/boarding-school/3')
+      routesforCategoryIndex.push('/category/university/1')
+      routesforCategoryIndex.push('/category/university/2')
+      routesforCategoryIndex.push('/category/university/3')
+      routesforCategoryIndex.push('/category/expertarticles/1')
+      routesforCategoryIndex.push('/category/expertarticles/2')
+      routesforCategoryIndex.push('/category/expertarticles/3')
+      routesforCategoryIndex.push('/category/mediaoutlet/1')
+      routesforCategoryIndex.push('/category/mediaoutlet/2')
+      routesforCategoryIndex.push('/category/mediaoutlet/3')
+      routesforCategoryIndex.push('/category/mediaoutlet/4')
+      routesforCategoryIndex.push('/category/mediaoutlet/5')
 
-  /*    let routesforCategoryIndex = []
-      routesforCategory.forEach(
-        element => {
-          for (var i = 1; i < 10 ; i++) {
-            routesforCategoryIndex.push(element.route+'/'+ i)
-          } 
-        }
-      ) */
-      
-     
 
       const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
       .concat(routesforSubjects).concat(routesforAreas)
       .concat(routesforArticles).concat(routesforArticlesIndex)
       .concat(routesforCategory)
-     // .concat(routesforCategoryIndex)
-    
+      .concat(routesforCategoryIndex)
   
-    //  const routes = routesforCategoryIndex
+  
       return routes
 
     }
