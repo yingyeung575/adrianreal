@@ -196,7 +196,7 @@ export default {
       routesforCategoryIndex.push('/category/mediaoutlet/3')
       routesforCategoryIndex.push('/category/mediaoutlet/4')
       routesforCategoryIndex.push('/category/mediaoutlet/5')
-
+      // some 
 
       const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
       .concat(routesforSubjects).concat(routesforAreas)
