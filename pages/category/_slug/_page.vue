@@ -3,7 +3,7 @@
            <section class="padding-y-xl">
             <div class="articles">
                     <div class="container max-width-adaptive-lg">
-                      <div class="text-center margin-bottom-xl">
+                    <!--  <div class="text-center margin-bottom-xl">
                             <h1 v-if='category.slug == $route.params.slug' v-for="(category,idx) in categories" :key='idx'>{{ category.name }}</h1> 
                             <div class="margin-top-lg">
                                    <a :href="'/category/'+ category.slug" v-for="(category,idx) in categories" :key='idx' class="story__category margin-x-sm">
@@ -11,7 +11,7 @@
                                    </a>
                                   
                             </div>
-                      </div>
+                      </div> -->
                        
                       <div class="grid grid-gap-lg">
                         <article class="story story--featured" v-if='idx==0' v-for="(article, idx) in filteredarticles" v-bind:key="idx">
