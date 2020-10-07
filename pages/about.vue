@@ -25,7 +25,7 @@
 
 <!-- popup -->
 
-      <section class="padding-y-xxl bgmore" style="background-image: url('img/mainbg.jpg');">
+      <section class="padding-y-xxl bgmore" :style="'background-image: url('+frontendurl+'img/mainbg.jpg);'">
         <div class="container max-width-adaptive-sm">
           <div class="hero__content text-center">
             

@@ -109,7 +109,24 @@ export default {
          routesforCasesIndex.push('/case-analysis/page/'+ i)
       } 
 
-      const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex)
+      // news
+      const resforNews = await axios.get('https://whostsite.com/deadlines')
+      
+      const routesforNews = resforNews.data.map(post => {
+          return {
+            route: '/news/' + post.slug,
+            payload: post
+          }
+      })
+
+      const noofpagenews =  routesforNews.length / 10
+      
+      let routesforNewsIndex = []
+      for (var i = 1; i < noofpagenews  + 1; i++) {
+        routesforNewsIndex.push('/news/page/'+ i)
+      } 
+
+      const routes = routesforEvents.concat(routesforEventsIndex).concat(routesforCases).concat(routesforCasesIndex).concat(routesforNews).concat(routesforNewsIndex)
       return routes
 
     }
