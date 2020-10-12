@@ -2,7 +2,7 @@
     <div>
             <section class="padding-bottom-xl">
             <article class="t-article-v3 padding-bottom-lg">
-                    <div class="t-article-v3__hero margin-bottom-lg" :style="'background-image: url('+ backendurl + article.thumbnail.url + ');'">
+                    <div class="t-article-v3__hero margin-bottom-lg" :style="'background-image: url('+ backendurl2 + article.thumbnail.url + ');'">
                       <div class="container max-width-adaptive-sm">
                         <div class="t-article-v3__intro-text text-component text-center">
                           <h1 class="text-xxxl color-inherit">{{ article.title }}</h1>
@@ -25,9 +25,9 @@
                                             </div>
                                             <figure class="text-component__block" v-if="content.__component === 'image.image'">
                                               <a v-if='content.link' :href='content.link'>
-                                                  <img :src="backendurl + content.image.url">
+                                                  <img :src="backendurl2 + content.image.url">
                                               </a>
-                                              <img v-if='!content.link' :src="backendurl + content.image.url">
+                                              <img v-if='!content.link' :src="backendurl2 + content.image.url">
                                               <figcaption>{{ content.caption }}</figcaption>
                                             </figure>
                                       
@@ -40,7 +40,7 @@
                     <div class="container max-width-adaptive-sm">
                       <div class="author ">
                         <a href="#0" class="author__img-wrapper">
-                             <img class='circle' width="150" v-if='article.author' :src="backendurl + article.author.profile.url">
+                             <img class='circle' width="150" v-if='article.author' :src="backendurl2 + article.author.profile.url">
                         </a>
                   
                         <div class="author__content text-component v-space-xxs">
@@ -62,6 +62,7 @@
 export default {  
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
    

@@ -17,7 +17,7 @@
                         <article class="story story--featured" v-show='idx==0' v-for="(article, idx) in filteredarticles" v-bind:key="idx">
                           <a :href="frontendurl+'article/'+article.slug" class="story__img">
                             <figure class="media-wrapper media-wrapper--5:3">
-                              <img v-show='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                              <img v-show='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                             </figure>
                           </a>
                   
@@ -35,7 +35,7 @@
                     
                             <div class="story__author margin-top-sm">
                               <span class="block">
-                                <img v-show='article.author' :src="backendurl + article.author.profile.url">
+                                <img v-show='article.author' :src="backendurl2 + article.author.profile.url">
                               </span>
                   
                               <div>
@@ -49,7 +49,7 @@
                         <article class="story col-4@md" v-show='idx!=0' v-for="(article, idx) in filteredarticles" v-bind:key="idx" >
                           <a :href="frontendurl+'article/'+article.slug" class="story__img">
                             <figure class="media-wrapper media-wrapper--5:3">
-                              <img v-show='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                              <img v-show='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                             </figure>
                           </a>
                   
@@ -67,7 +67,7 @@
                     
                             <div class="story__author margin-top-sm">
                               <span class="block">
-                                <img v-show='article.author' :src="backendurl + article.author.profile.url">
+                                <img v-show='article.author' :src="backendurl2 + article.author.profile.url">
                               </span>
                   
                               <div>
@@ -131,6 +131,7 @@
 export default {  
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        noofpost: 10

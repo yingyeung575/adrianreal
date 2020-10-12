@@ -65,8 +65,12 @@ export default {
     }
   },
   env: {
-    backendurl: 'https://whostsite.com/',
-    frontendurl: 'https://vigilant-perlman-c214ff.netlify.app/'
+    // backendurl: 'https://whostsite.com/',
+
+    
+    backendurl: 'http://172.104.181.103:1337/',
+    backendurl2: 'http://172.104.181.103:1337',
+    frontendurl: 'http://localhost:3000/'
   },
  /* router: {
       base: '/adrian/adrian-nuxt/'
@@ -74,7 +78,7 @@ export default {
   generate: {
     async routes() {
  
-
+      /*
       // events
       const resforEvents = await axios.get('https://whostsite.com/talks')
       
@@ -208,6 +212,8 @@ export default {
   
   
       return routes
+
+      */
 
     }
   }

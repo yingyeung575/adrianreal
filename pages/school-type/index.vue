@@ -47,7 +47,7 @@
                     
                     <li><nuxt-link to="/school-type/university/step2" class="full-screen-select__option" role="option">大學</nuxt-link></li>
                     <li><nuxt-link to='/school-type/international-one/step2' class="full-screen-select__option" role="option">國際一年級</nuxt-link></li>
-                    <li><a :href='frontendurl+"school-type/summer-school"' class="full-screen-select__option" role="option">夏季學校</a></li>
+                    <li><a :href='frontendurl+"school-type/summer-school"' class="full-screen-select__option" role="option">遊學團</a></li>
 
                   </ul> 
                 </div>

@@ -25,6 +25,9 @@
                 </div>
             
                 <div class="text-component">
+                          <figure class="card-v3__img">
+                            <img width='200' v-if='article.image' :src="backendurl2 + article.image.url">
+                          </figure>
                 <h2 class="story-v2__headline">{{ article.title }}</h2>
                 
                 <p class="story-v2__excerpt">{{ article.excerpt }}</p>

@@ -252,7 +252,7 @@
                 <li><nuxt-link to="/school-type/foundation/step2">大學基礎班</nuxt-link></li>
                 <li><nuxt-link to="/school-type/university/step2">大學</nuxt-link></li>
                 <li><nuxt-link class="s-tabs__item--selected" to="/school-type/international-one/step2">國際一年級</nuxt-link></li>
-                <li><a :href='frontendurl+"school-type/summer-school"'>夏季學校</a></li>
+                <li><a :href='frontendurl+"school-type/summer-school"'>遊學團</a></li>
               </ul>
               
             </nav>
@@ -265,7 +265,7 @@
                     <div class="grid grid-gap-md">
                         <div class="text-left col-7@md padding-y-md padding-x-lg">
                           <nuxt-link class='nodecor' :to="'/international-one/' + list.internationalone.slug">
-                          <img :src='backendurl  + list.internationalone.image.url' width='100' v-if='list.internationalone.image'>
+                          <img :src='backendurl2  + list.internationalone.image.url' width='100' v-if='list.internationalone.image'>
                           <h4 class="color-primary"><span class="padding-left-xxxs">{{list.internationalone.name}}</span></h4>
                           <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2c3.196 0 6 2.618 6 5.602 0 3.093-2.493 7.132-6 12.661-3.507-5.529-6-9.568-6-12.661 0-2.984 2.804-5.602 6-5.602m0-2c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>{{list.internationalone.address}}</p>
                           <p>{{list.internationalone.excerpt}}</p>
@@ -378,6 +378,7 @@ import { mapMutations } from 'vuex'
 export default {
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        selectedsubject: this.$route.query.subject,
@@ -391,7 +392,7 @@ export default {
     }
   },
   async asyncData({ $axios }) {
- //   const subjects = await $axios.$get(process.env.backendurl+'subjects?isuniversity_eq=true')
+ //   const subjects = await $axios.$get(process.env.backendurl2+'subjects?isuniversity_eq=true')
  //   return { subjects }
   },
   async created(){
@@ -400,7 +401,7 @@ export default {
      /* if (this.$store.state.schools.internationalone)
        this.subjects = this.$store.state.schools.internationalone
      else{
-       this.subjects = await this.$axios.$get(process.env.backendurl+'subjects?isinternation1_eq=true') 
+       this.subjects = await this.$axios.$get(process.env.backendurl2+'subjects?isinternation1_eq=true') 
        this.setInternationalone(this.subjects)
      } */
      this.subjects = await this.$axios.$get(process.env.backendurl+'subjects?slug='+this.selectedsubject) 

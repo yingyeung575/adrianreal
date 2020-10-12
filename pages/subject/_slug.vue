@@ -5,14 +5,14 @@
                   <div class="grid grid-gap-md">
                       <div class="col-4@md">
                             <div class="text-center">
-                                <img v-if='article.author' class='circle' :src='backendurl + article.author.profile.url' width="150">
+                                <img v-if='article.author' class='circle' :src='backendurl2 + article.author.profile.url' width="150">
                                 <div class="margin-auto showbox bg-contrast-lower margin-bottom-sm">
                                     <h4 v-if='article.author' class="text-md color-primary margin-bottom-sm">升學顧問：{{ article.author.name }}</h4>
                                     <p v-if='article.author && !article.consultantcomment' class="text-sm">{{ article.author.slogan }}</p>
                                     <p v-if='article.author && article.consultantcomment' class="text-sm">{{ article.consultantcomment }}</p>
                                     <a href="#0" class="margin-top-sm width-100% btn btn--accent">預約免費諮詢</a>
                                 </div>
-                                <a href="" class=" width-100% color-black">下載科目排名表 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M16 11h5l-9 10-9-10h5v-11h8v11zm1 11h-10v2h10v-2z"></path></svg></a>
+                               <!-- <a href="" class=" width-100% color-black">下載科目排名表 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M16 11h5l-9 10-9-10h5v-11h8v11zm1 11h-10v2h10v-2z"></path></svg></a> -->
 
                                  <div class="text-component text-left bg-contrast-lower padding-y-md padding-x-lg margin-top-xxl line-height-lg v-space-md">
                                       <div v-html="$md.render(article.leftcontent)"> </div>               
@@ -29,7 +29,7 @@
                                 <div class="text-component text-left line-height-lg v-space-md margin-bottom-md">
                                         <figure class="max-width-lg margin-bottom-lg">
                                                
-                                            <img v-if='article.image' style='margin:0' width='300' :src="backendurl + article.image.url">
+                                            <img v-if='article.image' style='margin:0' width='300' :src="backendurl2 + article.image.url">
                                         </figure>
                                     <h1>{{ article.name }}</h1>
                                     <p class="text-italic">最後更新日期：{{ jdate }}</p>
@@ -56,9 +56,9 @@
                                         
                                             <figure class="text-component__block" v-if="content.__component === 'image.image'">
                                               <a v-if='content.link' :href='content.link'>
-                                                  <img :src="backendurl + content.image.url">
+                                                  <img :src="backendurl2 + content.image.url">
                                               </a>
-                                              <img v-if='!content.link' :src="backendurl + content.image.url">
+                                              <img v-if='!content.link' :src="backendurl2 + content.image.url">
                                               <figcaption>{{ content.caption }}</figcaption>
                                             </figure>
                                       
@@ -96,6 +96,7 @@ export default {
   },
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
     }

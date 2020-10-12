@@ -17,7 +17,7 @@
                       <div class="flex justify-center">
                         <div class="author author--meta">
                           <a href="#0" class="author__img-wrapper">
-                            <img v-if='article.author' :src="backendurl + article.author.profile.url">
+                            <img v-if='article.author' :src="backendurl2 + article.author.profile.url">
                           </a>
                   
                           <div class="author__content text-component v-space-xxs">
@@ -30,7 +30,7 @@
                     </header>
                   
                   <!--  <figure class="container max-width-adaptive-sm margin-bottom-lg">
-                       <img v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                       <img v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                     </figure> -->
                   
                     <div class="container max-width-adaptive-sm">
@@ -46,9 +46,9 @@
                           </div>
                           <figure class="text-component__block" v-if="content.__component === 'image.image'">
                              <a v-if='content.link' :href='content.link'>
-                                <img :src="backendurl + content.image.url" :width='content.size'>
+                                <img :src="backendurl2 + content.image.url" :width='content.size'>
                              </a>
-                             <img v-if='!content.link' :src="backendurl + content.image.url" :width='content.size'>
+                             <img v-if='!content.link' :src="backendurl2 + content.image.url" :width='content.size'>
                             <figcaption>{{ content.caption }}</figcaption>
                           </figure>
                     
@@ -140,6 +140,7 @@
 export default {  
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        showpop: false
@@ -154,9 +155,9 @@ export default {
   },
   mounted(){
    
-    setTimeout(function () {
+   /* setTimeout(function () {
       this.showpop = true; 
-    }.bind(this),3000)
+    }.bind(this),3000) */
     
   },
   async asyncData({ $axios, params }) {

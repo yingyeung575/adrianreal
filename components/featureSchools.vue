@@ -15,7 +15,7 @@
                           <a class='nodec' :href='frontendurl + school.linkslug'>
                             <div class="school__content">
 
-                                <img v-if='school.image' :src="backendurl + school.image.url">
+                                <img v-if='school.image' :src="backendurl2 + school.image.url">
                                 <h5 class="color-primary text-base">{{ school.name }}</h5>
                                 <div v-if='school.tagline1' class="school__characteristic">
                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="purple">
@@ -68,6 +68,7 @@
         props: ['schoolobject'],
         data(){
             return{
+            backendurl2 : process.env.backendurl2,
             backendurl : process.env.backendurl,
             frontendurl : process.env.frontendurl,
             }

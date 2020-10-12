@@ -7,12 +7,12 @@
                       <div class="col-4@md">
                             <div class="text-center">
                                
-                                <img class='circle' width="150" v-if='article.author' :src="backendurl + article.author.profile.url">
+                                <img class='circle' width="150" v-if='article.author' :src="backendurl2 + article.author.profile.url">
                                 <div class="margin-auto showbox bg-contrast-lower">
                                     <h4 v-if='article.author' class="text-md color-primary margin-bottom-sm">{{ article.author.name }}</h4>
                                     <p v-if='article.author && !article.consultantcomment' class="text-sm">{{ article.author.slogan }}</p>
                                     <p v-if='article.author && article.consultantcomment' class="text-sm">{{ article.consultantcomment }}</p>
-                                    <a href="#0" class="margin-top-sm width-100% btn btn--accent">預約免費諮詢</a>
+                                    <a :href="frontendurl + 'apply'" class="margin-top-sm width-100% btn btn--accent">預約免費諮詢</a>
                                 </div>
                             </div>
                       </div>
@@ -23,7 +23,7 @@
                                 <div class="text-component text-left line-height-lg v-space-md margin-bottom-md">
                                         <figure class="container max-width-lg margin-bottom-lg">
         
-                                          <img width='200' v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                                          <img width='200' v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                                         </figure>
                                     <h1 class="mb0">{{ article.title }}</h1>
                                     <span role="separator"></span> <time>{{ article.date }}</time> 
@@ -51,9 +51,9 @@
                                             </div>
                                             <figure class="text-component__block" v-if="content.__component === 'image.image'">
                                               <a v-if='content.link' :href='content.link'>
-                                                  <img :src="backendurl + content.image.url">
+                                                  <img :src="backendurl2 + content.image.url">
                                               </a>
-                                              <img v-if='!content.link' :src="backendurl + content.image.url">
+                                              <img v-if='!content.link' :src="backendurl2 + content.image.url">
                                               <figcaption>{{ content.caption }}</figcaption>
                                             </figure>
                                       
@@ -94,6 +94,7 @@
 export default {  
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
    

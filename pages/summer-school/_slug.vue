@@ -7,7 +7,7 @@
                           <nuxt-link class="hjhj text-sm" to='/school-type/summer-school'>< 返回</nuxt-link>
                             <div>
    
-                              <img v-if='article.image' class='floatl margin-right-md margin-bottom-md' :src="backendurl + article.image.url" height="80">
+                              <img v-if='article.image' class='floatl margin-right-md margin-bottom-md' :src="backendurl2 + article.image.url" height="80">
                               <h4 class="color-primary floath"><span class="padding-left-xxxs"></span>{{ article.name }}</span></h4>
                             </div>
                             <div style="clear:both"></div>
@@ -16,7 +16,7 @@
                             <div v-if='article.author' class="author bg-contrast-lower padding-md">
 
                                       <a href="#0" class="author__img-wrapper">
-                                        <img :src="backendurl + article.author.profile.url">
+                                        <img :src="backendurl2 + article.author.profile.url">
                                       </a>
                                 
                                       <div class="author__content text-component v-space-xxs">
@@ -46,9 +46,9 @@
                                           
                                             <figure class="text-component__block" v-if="content.__component === 'image.image'">
                                               <a v-if='content.link' :href='content.link'>
-                                                  <img :src="backendurl + content.image.url">
+                                                  <img :src="backendurl2 + content.image.url">
                                               </a>
-                                              <img v-if='!content.link' :src="backendurl + content.image.url">
+                                              <img v-if='!content.link' :src="backendurl2 + content.image.url">
                                               <figcaption>{{ content.caption }}</figcaption>
                                             </figure>
 
@@ -346,7 +346,7 @@ Or Any special A Level subject that other school doesn’t offer
                       
                       </div>
                       <div class="col-4@md">
-                            <a href="/apply" class="margin-top-lg width-100% btn btn--accent padding-y-sm">立即報名</a>
+                            <a :href="frontendurl + 'apply'" class="margin-top-lg width-100% btn btn--accent padding-y-sm">立即查詢</a>
                             <div data-theme="reverse" class="padding-x-md padding-y-sm margin-top-sm">
                                 <p>學校資料</p>
                             </div>
@@ -373,7 +373,7 @@ Or Any special A Level subject that other school doesn’t offer
                                     
                             </div>
 
-                            <a href='' class="margin-top-lg width-100% color-black">下載學校排名表 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M16 11h5l-9 10-9-10h5v-11h8v11zm1 11h-10v2h10v-2z"/></svg></a>
+                            <!-- <a href='' class="margin-top-lg width-100% color-black">下載學校排名表 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M16 11h5l-9 10-9-10h5v-11h8v11zm1 11h-10v2h10v-2z"/></svg></a> -->
 
 
                       </div>
@@ -392,7 +392,7 @@ Or Any special A Level subject that other school doesn’t offer
                       <article class="story col-3@md" v-for='(article,idx) in article.relatedarticles' v-bind:key="idx">
                         <a :href="frontendurl + 'article/' + article.linkslug" class="story__img">
                           <figure class="">
-                            <img v-if='article.image' :src="backendurl + article.image.url">
+                            <img v-if='article.image' :src="backendurl2 + article.image.url">
                           </figure>
                         </a>
                 
@@ -418,7 +418,7 @@ Or Any special A Level subject that other school doesn’t offer
                       <article class="story col-3@md" v-for='(article,idx) in ranarticles' v-bind:key="idx">
                         <a :href="frontendurl+'article/'+article.slug" class="story__img">
                           <figure class="">
-                            <img v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                            <img v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                           </figure>
                         </a>
                 
@@ -456,6 +456,7 @@ export default {
   },
 data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        selectedsubject: 'computer-science',

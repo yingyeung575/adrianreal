@@ -13,7 +13,7 @@
                         <a :href="article.formlink" target='_blank' class="margin-top-md width-100% btn btn--accent">立即報名</a>
                        <div class="t-article-v3__divider container margin-top-xl max-width-adaptive-sm margin-bottom-xl" aria-hidden="true"><span></span></div>
                         <div class="text-center">
-                          <img class='circle' width="150" v-if='article.author' :src="backendurl + article.author.profile.url">
+                          <img class='circle' width="150" v-if='article.author' :src="backendurl2 + article.author.profile.url">
                           <div class="margin-auto showbox bg-contrast-lower">
                               <h4 v-if='article.author' class="text-md color-primary margin-bottom-sm">{{ article.author.name }}</h4>
                               <p v-if='article.author && !article.consultantcomment' class="text-sm">{{ article.author.slogan }}</p>
@@ -28,7 +28,7 @@
 
                                     <figure class="text-component__block ">
                                            
-                                           <img v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                                           <img v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                                     </figure>
 
                                          <div v-bind:key='idy' v-for='(content, idy) in article.maincontent'>
@@ -41,9 +41,9 @@
                                             </div>
                                             <figure class="text-component__block" v-if="content.__component === 'image.image'">
                                               <a v-if='content.link' :href='content.link'>
-                                                  <img :src="backendurl + content.image.url">
+                                                  <img :src="backendurl2 + content.image.url">
                                               </a>
-                                              <img v-if='!content.link' :src="backendurl + content.image.url">
+                                              <img v-if='!content.link' :src="backendurl2 + content.image.url">
                                               <figcaption>{{ content.caption }}</figcaption>
                                             </figure>
                                       
@@ -95,7 +95,8 @@
 export default {  
   data(){
     return{
-       backendurl : process.env.backendurl,
+       backendurl2 : process.env.backendurl2,
+        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
    
 

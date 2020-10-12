@@ -47,7 +47,7 @@
                         </div>
 
                           <figure class="card-v3__img">
-                            <img width='200' v-if='event.thumbnail' :src="backendurl + event.thumbnail.url">
+                            <img width='200' v-if='event.thumbnail' :src="backendurl2 + event.thumbnail.url">
                           </figure>
                       
                         <div class="card-v3__content">
@@ -75,9 +75,9 @@
 
  <section class='padding-y-xl'>
                   <div class="container max-width-adaptive-lg">
-                    <h3 class="margin-bottom-lg text-center">LinkedU服務</h3>
+                    <h3 class="margin-bottom-lg text-center">LINKEDU服務</h3>
                     <div class="grid grid-gap-sm">
-                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle1" :style="'background-image: url('+ backendurl + home.about1img.url + ');'" >
+                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle1" :style="'background-image: url('+ backendurl2 + home.about1img.url + ');'" >
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                          <!--   <p class="card-v9__label">Travels</p> -->
@@ -88,7 +88,7 @@
                         </div>
                       </a>
                       
-                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle2" :style="'background-image: url('+ backendurl + home.about2img.url + ');'">
+                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle2" :style="'background-image: url('+ backendurl2 + home.about2img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                        
@@ -99,7 +99,7 @@
                         </div>
                       </a>
                 
-                      <a href="#0" class="card-v9 col-12@md" aria-labelledby="cardTitle3" :style="'background-image: url('+ backendurl + home.about3img.url + ');'">
+                      <a href="#0" class="card-v9 col-12@md" aria-labelledby="cardTitle3" :style="'background-image: url('+ backendurl2 + home.about3img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                            
@@ -110,7 +110,7 @@
                         </div>
                       </a>
                 
-                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle4" :style="'background-image: url('+ backendurl + home.about4img.url + ');'">
+                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle4" :style="'background-image: url('+ backendurl2 + home.about4img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                          <!--   <p class="card-v9__label">Travels</p> -->
@@ -121,7 +121,7 @@
                         </div>
                       </a>
                       
-                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle5" :style="'background-image: url('+ backendurl + home.about6img.url + ');'">
+                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle5" :style="'background-image: url('+ backendurl2 + home.about6img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                        
@@ -148,7 +148,7 @@
             <div class="">
               <ul class="customer-logos flex flex-wrap gap-lg flex-center">
                 <li v-for='(logo,idx) in home.logos' :key='idx'>
-                  <img :src="backendurl + logo.url" width='150'>
+                  <img :src="backendurl2 + logo.url" width='150'>
                 </li>
           
               </ul>
@@ -162,7 +162,7 @@
             <div class="container max-width-adaptive-lg">
 
                 <div class="text-center">
-                    <h3 class="margin-bottom-lg">LinkedU YouTube Channel </h3>
+                    <h3 class="margin-bottom-lg">LINKEDU YouTube Channel </h3>
                 </div>
                 <div class="grid grid-gap-md">
                   <div class="col-6@md" >
@@ -171,7 +171,7 @@
                     </div> -->
                     <figure>
                                 <a :href="frontendurl+'article/'+home.videoslug">
-                                <img v-if='home.videocover' :src="backendurl + home.videocover.url">
+                                <img v-if='home.videocover' :src="backendurl2 + home.videocover.url">
                                 </a>
                     </figure>
                   </div>
@@ -182,7 +182,7 @@
                             <div class="story__img noborderadius col-4@md">
                             <figure class="media-wrapper media-wrapper--4:3">
                                 <a :href="frontendurl+'article/'+article.slug">
-                                <img v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                                <img v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                                 </a>
                             </figure>
                             </div>
@@ -221,7 +221,7 @@
 
             <div class='container max-width-adaptive-lg'>
                 <div class="grid grid-gap-md">
-                    <div class="col-4@md" v-for='(area,idx) in home.area' :style="'background-image:url('+ backendurl + area.background.url+');background-size: cover;'">
+                    <div class="col-4@md" v-for='(area,idx) in home.area' :style="'background-image:url('+ backendurl2 + area.background.url+');background-size: cover;'">
                         <a :href='frontendurl + "clearing/" + area.linkslug'>
                            <h3 class="text-center padding-y-xl color-white">{{ area.title }}</h3>
                         </a>
@@ -245,7 +245,7 @@
                             <div class="carousel__demo-content">
                               <a class='nodec' :href='frontendurl + school.linkslug'>
                                 <div class="school__content">
-                                    <img v-if='school.image' :src="backendurl + school.image.url">
+                                    <img v-if='school.image' :src="backendurl2 + school.image.url">
                                     <h5 class="color-primary">{{ school.name }}</h5>
                                     <div class="school__characteristic">
                                     
@@ -300,7 +300,7 @@
                          
                           <a :href="frontendurl+'article/'+sharing.slug" class="story__img">
                             <figure>
-                              <img v-if='sharing.thumbnail' :src="backendurl + sharing.thumbnail.url">
+                              <img v-if='sharing.thumbnail' :src="backendurl2 + sharing.thumbnail.url">
                             </figure>
                           </a>
                   
@@ -338,7 +338,7 @@
                               <div class="carousel__demo-content">
                                 <a class='nodec' :href='frontendurl + school.linkslug'>
                                   <div class="school__content">
-                                      <img v-if='school.image' :src="backendurl + school.image.url">
+                                      <img v-if='school.image' :src="backendurl2 + school.image.url">
                                       <h5 class="color-primary">{{ school.name }}</h5>
                                       <div class="school__characteristic" v-if='school.tagline1'>
                                       
@@ -395,7 +395,7 @@
                     
                         <a :href="frontendurl+'article/'+article.slug" class="story__img">
                           <figure>
-                            <img v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                            <img v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                           </figure>
                         </a>
                 
@@ -511,6 +511,7 @@ export default {
   },
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl
     }

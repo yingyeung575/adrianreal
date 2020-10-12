@@ -40,7 +40,7 @@
                          
                           <a :href="frontendurl+'article/'+sharing.slug" class="story__img">
                             <figure>
-                              <img v-if='sharing.thumbnail' :src="backendurl + sharing.thumbnail.url">
+                              <img v-if='sharing.thumbnail' :src="backendurl2 + sharing.thumbnail.url">
                             </figure>
                           </a>
                   
@@ -92,6 +92,7 @@ export default {
   },
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl
     }

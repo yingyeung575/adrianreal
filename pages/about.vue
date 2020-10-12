@@ -30,7 +30,7 @@
           <div class="hero__content text-center">
             
             <div class="text-component margin-bottom-sm">
-              <h1 class="color-white">關於LinkedU</h1>
+              <h1 class="color-white">關於LINKEDU</h1>
               
             </div>
         
@@ -66,15 +66,15 @@
        <section class="team padding-y-xl">
       <div class="container max-width-adaptive-lg">
         <div class="margin-bottom-lg">
-          <h3 class="text-center margin-bottom-lg">LinkedU團隊</h3>
+          <h3 class="text-center margin-bottom-lg">LINKEDU團隊</h3>
         </div>
 
-        <div class="">
+        <div class="height302">
      
           <div v-for='(team,idx) in about.ourteam' :key='idx' class=" jhover card-v2 wwspecial" @click='openpop(team.name,team.description)'>
             <figure>
             
-              <img v-if='team.image' :src="backendurl + team.image.url">
+              <img v-if='team.image' :src="backendurl2 + team.image.url">
               <figcaption class="card-v2__caption text-center">
                 <div class="card-v2__title">{{ team.name }}</div>
                 <div class="card-v2__label">{{ team.title }}</div>
@@ -101,7 +101,7 @@
             <div class="">
               <ul class="customer-logos flex flex-wrap gap-lg flex-center">
                 <li v-for='(logo,idx) in home.logos' :key='idx'>
-                  <img :src="backendurl + logo.url" width='150'>
+                  <img :src="backendurl2 + logo.url" width='150'>
                 </li>
           
               </ul>
@@ -114,9 +114,9 @@
       <section class='padding-y-xl'>
        
           <div class="container max-width-adaptive-lg">
-                    <h3 class="margin-bottom-lg text-center">LinkedU服務</h3>
+                    <h3 class="margin-bottom-lg text-center">LINKEDU服務</h3>
                     <div class="grid grid-gap-sm">
-                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle1" :style="'background-image: url('+ backendurl + home.about1img.url + ');'" >
+                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle1" :style="'background-image: url('+ backendurl2 + home.about1img.url + ');'" >
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                          <!--   <p class="card-v9__label">Travels</p> -->
@@ -127,7 +127,7 @@
                         </div>
                       </a>
                       
-                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle2" :style="'background-image: url('+ backendurl + home.about2img.url + ');'">
+                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle2" :style="'background-image: url('+ backendurl2 + home.about2img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                        
@@ -138,7 +138,7 @@
                         </div>
                       </a>
                 
-                      <a href="#0" class="card-v9 col-12@md" aria-labelledby="cardTitle3" :style="'background-image: url('+ backendurl + home.about3img.url + ');'">
+                      <a href="#0" class="card-v9 col-12@md" aria-labelledby="cardTitle3" :style="'background-image: url('+ backendurl2 + home.about3img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                            
@@ -149,7 +149,7 @@
                         </div>
                       </a>
                 
-                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle4" :style="'background-image: url('+ backendurl + home.about4img.url + ');'">
+                      <a href="#0" class="card-v9 col-8@md" aria-labelledby="cardTitle4" :style="'background-image: url('+ backendurl2 + home.about4img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                          <!--   <p class="card-v9__label">Travels</p> -->
@@ -160,7 +160,7 @@
                         </div>
                       </a>
                       
-                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle5" :style="'background-image: url('+ backendurl + home.about6img.url + ');'">
+                      <a href="#0" class="card-v9 col-4@md" aria-labelledby="cardTitle5" :style="'background-image: url('+ backendurl2 + home.about6img.url + ');'">
                         <div class="card-v9__content">
                           <div class="card-v9__text">
                        
@@ -182,7 +182,7 @@
         <section class="margin-bottom-xxxl">
 
             <div class="container max-width-adaptive-sm">
-                <h3 class="text-center">LinkedU 服務流程</h3>
+                <h3 class="text-center">LINKEDU 服務流程</h3>
                
             </div>
             
@@ -193,7 +193,7 @@
                   <div>
                       <figure>
     
-                          <img v-if='about.service1' :src="backendurl + about.service1.url">
+                          <img v-if='about.service1' :src="backendurl2 + about.service1.url">
                       </figure>       
                   </div>
                 </div>
@@ -218,14 +218,14 @@
                 <div class="col-6@md">
                     <div>
                         <figure>
-                             <img v-if='about.service2' :src="backendurl + about.service2.url">
+                             <img v-if='about.service2' :src="backendurl2 + about.service2.url">
                         </figure>       
                     </div>
                   </div> 
                   <div class="col-6@md finalmargin">
                       <div>
                           <figure>
-                               <img v-if='about.service3' :src="backendurl + about.service3.url">
+                               <img v-if='about.service3' :src="backendurl2 + about.service3.url">
                           </figure>       
                       </div>
                     </div>
@@ -261,7 +261,7 @@
                 
                     <a :href="frontendurl+'case-analysis/'+cas.linkslug" class="nodecor">
                       <figure class="">
-                        <img v-if='cas.image' :src="backendurl + cas.image.url">
+                        <img v-if='cas.image' :src="backendurl2 + cas.image.url">
                       </figure>
                    
             
@@ -300,7 +300,7 @@
                     
                         <a :href="frontendurl+'article/'+article.slug" class="story__img">
                           <figure>
-                            <img v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                            <img v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                           </figure>
                         </a>
                 
@@ -387,6 +387,7 @@ export default {
   },
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        showpop: false,

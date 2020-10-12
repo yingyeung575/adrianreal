@@ -13,7 +13,7 @@
                   
                             <footer class="margin-top-md">
                               <figure class="testimonial-slideshow__img margin-bottom-sm" aria-hidden="true">
-                                <img class="avatar__img" v-if='test.image' :src="backendurl + test.image.url">
+                                <img class="avatar__img" v-if='test.image' :src="backendurl2 + test.image.url">
                               </figure>
                               
                               <cite class="testimonial-slideshow__cite">
@@ -50,6 +50,7 @@
         props: ['testobject'],
         data(){
             return{
+            backendurl2 : process.env.backendurl2,
             backendurl : process.env.backendurl,
             frontendurl : process.env.frontendurl,
             }

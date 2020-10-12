@@ -20,7 +20,7 @@
                 <div class="card-v3 text-center ">
                     <a :href="frontendurl+'events/'+article.slug" class="card-v3__link" aria-label="Description of the link">
                         <figure class="card-v3__img">
-                            <img width='200' v-if='article.thumbnail' :src="backendurl + article.thumbnail.url">
+                            <img width='200' v-if='article.thumbnail' :src="backendurl2 + article.thumbnail.url">
                           </figure>
                     
                       <div class="card-v3__content">
@@ -92,6 +92,7 @@
 export default {  
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        noofpost: 9

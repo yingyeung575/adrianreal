@@ -25,7 +25,12 @@
                 </div>
             
                 <div class="text-component">
-                <h2 class="story-v2__headline">{{ article.title }}</h2>
+
+                          <figure>
+                            <img width='200' v-if='article.image' :src="backendurl2 + article.image.url">
+                          </figure>
+
+                <h2 style="margin-top:0.3em">{{ article.title }}</h2>
                 
                 <p class="story-v2__excerpt">{{ article.excerpt }}</p>
                 </div>
@@ -80,6 +85,7 @@ export default {
   data(){
     return{
        backendurl : process.env.backendurl,
+       backendurl2 : process.env.backendurl2,
        frontendurl : process.env.frontendurl,
        noofpost: 10
     }

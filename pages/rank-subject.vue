@@ -9,7 +9,7 @@
                 <div class="author bg-contrast-lower padding-md margin-top-md margin-bottom-xl">
 
                         <span class="author__img-wrapper">
-                          <img v-if='pagecontent.author'  :src='backendurl + pagecontent.author.profile.url' >
+                          <img v-if='pagecontent.author'  :src='backendurl2 + pagecontent.author.profile.url' >
                         </span>
                   
                         <div v-if='pagecontent.author' class="author__content text-component v-space-xxs">
@@ -146,7 +146,7 @@
           </div>
       </section>
 
-      <section class="bg-contrast-lower radius-md padding-lg">
+  <!--  <section class="bg-contrast-lower radius-md padding-lg">
         <div class="container max-width-lg">
             <div class="grid grid-gap-md items-center">
               <div class="col-6@md">
@@ -167,7 +167,7 @@
             </div>
               </div>
             </div>
-          </section>
+          </section> -->
     </div>
 </template>
 
@@ -178,6 +178,7 @@ import { mapMutations } from 'vuex'
 export default {
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
        selectedsubject: this.$route.query.subject,
@@ -190,7 +191,7 @@ export default {
     }
   },
   async asyncData({ $axios }) {
- //   const subjects = await $axios.$get(process.env.backendurl+'subjects?isuniversity_eq=true')
+ //   const subjects = await $axios.$get(process.env.backendurl2+'subjects?isuniversity_eq=true')
  //   return { subjects }
       const pagecontent = await $axios.$get(process.env.backendurl+'subjectrankingpage')  
       return { pagecontent }

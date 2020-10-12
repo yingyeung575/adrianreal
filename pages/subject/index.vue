@@ -12,7 +12,7 @@
                             <div class="author bg-contrast-lower padding-md margin-top-md margin-bottom-xl">
 
                                     <span class="author__img-wrapper">
-                                    <img v-if='pagecontent.author'  :src='backendurl + pagecontent.author.profile.url' >
+                                    <img v-if='pagecontent.author'  :src='backendurl2 + pagecontent.author.profile.url' >
                                     </span>
                             
                                     <div v-if='pagecontent.author' class="author__content text-component v-space-xxs">
@@ -47,6 +47,7 @@ export default {
   },
   data(){
     return{
+       backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
        frontendurl : process.env.frontendurl,
     }
