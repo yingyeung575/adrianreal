@@ -90,6 +90,11 @@
 
 <script>  
 export default {  
+  head() {
+    return {
+       title: '最新講座｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,

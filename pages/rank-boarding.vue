@@ -3,7 +3,7 @@
             <section class="padding-top-xl padding-bottom-xxl">
 
           <div class='container max-width-sm'>
-                <h3 class="margin-bottom-sm  text-center">寄宿學校排名表</h3>
+                <h1 class="margin-bottom-sm text-lg text-center">寄宿學校排名表</h1>
                 <p class="margin-bottom-lg">{{ pagecontent.maintext }}</p>
                 
                 <div class="author bg-contrast-lower padding-md margin-top-md margin-bottom-xl">
@@ -349,7 +349,11 @@
 <script>
 
 export default {
-
+ head() {
+    return {
+       title: '寄宿學校排名表｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,

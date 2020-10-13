@@ -3,24 +3,25 @@
         <section>
             <div class="container max-width-adaptive-sm padding-y-xl">
                 <div class="text-component line-height-lg v-space-md">
-                    <h1>你準備好入讀心儀的英國學校了嗎？</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 免費與我們進行1對1咨詢！</p>
-                    <form>
+                    <h1>{{ pagecontent.title }}</h1>
+                    <div v-if="pagecontent.content" v-html="$md.render(pagecontent.content)"> </div> 
+                    <form @submit.prevent="addContact">
                         <div class="margin-bottom-sm">
                             <label class="form-label margin-bottom-xxxs" for="input-email">名字</label>
-                            <input class="form-control width-100%" type="text" name="input-name">
+                            <input class="form-control width-100%" type="text" v-model='contactName' name="contactName" id="contactName" required>
                         </div>
                         <div class="margin-bottom-sm">
                             <label class="form-label margin-bottom-xxxs" for="input-email">電郵</label>
-                            <input class="form-control width-100%" type="email" name="input-email">
+                             <input class="form-control width-100%" type="email" v-model='contactEmail' name="contactEmail" id="contactEmail" required>
                         </div>
                         <div class="margin-bottom-sm">
                             <label class="form-label margin-bottom-xxxs" for="input-email">電話</label>
-                            <input class="form-control width-100%" type="text" name="input-phone">
+                           <input class="form-control width-100%" type="text" v-model='contactPhone' name="contactPhone" id="contactPhone" required>
                         </div>
-                        <div class="margin-bottom-sm">
+                        <div class="margin-bottom-sm" v-if='!isSubmit'>
                             <button class="btn btn--primary btn--md width-100%">立即預約</button>
                         </div>
+                        <h3 class="margin-bottom-sm jalertmsg" v-if='isSubmit'>謝謝你的提交！我們會盡快聯絡你！</h3>
                     </form>
                 </div>
             </div>
@@ -80,9 +81,7 @@ import testimonials from '~/components/testimonials'
 export default {
   head() {
     return {
-      script: [
-       /* { src: 'js/home.js' , defer: true, body: true } */
-      ]
+       title: '免費1對1咨詢｜LINKEDU 領優教育'
     }
   },
   components:{
@@ -94,21 +93,45 @@ export default {
     return{
        backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
-       frontendurl : process.env.frontendurl
+       frontendurl : process.env.frontendurl,
+      contactName: '',
+      contactEmail: '',
+      contactPhone: '',
+      contactMessage: '',
+      isSubmit : false
     }
   },
   async asyncData({ $axios,query }) {
 
 
-    const [home,tests] = await Promise.all([
+    const [home,tests, pagecontent] = await Promise.all([
 
         $axios.$get(process.env.backendurl+'home'),
         $axios.$get(process.env.backendurl+'testimonials'),
+        $axios.$get(process.env.backendurl+'applypage'),
         
 
     ])
   
-    return { home,tests }
+    return { home,tests, pagecontent }
+  },
+  methods: {
+  
+    async addContact() {
+      await this.$axios.$post(process.env.backendurl+'contacts',{
+        name: this.contactName,
+        email: this.contactEmail,
+        phone: this.contactPhone,
+        securitytoken: 'ds%sdfj3asfaf%d'
+      })
+      .then((response) => {
+        console.log(response)
+        this.isSubmit = true
+      })
+      .catch((response) => {
+        console.log(response)
+      })
+    }
   }
 }
 

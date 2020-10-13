@@ -70,7 +70,7 @@
             <section class="padding-y-xl bg-contrast-lower">
                     <div class="container max-width-adaptive-lg">
                       <div class="margin-bottom-md">
-                        <h1 class="text-md">你可能也會喜歡...</h1>
+                        <h4 class="text-md">你可能也會喜歡...</h4>
                       </div>
                     
                       <div class="grid grid-gap-md">
@@ -92,6 +92,11 @@
 
 <script>  
 export default {  
+  head() {
+    return {
+       title: this.article.title + '｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,

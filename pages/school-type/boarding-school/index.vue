@@ -3,7 +3,7 @@
 
       <section id='newmainsearh'>
         <div class="grid">
-          <div class="col-3@md bgmilk">
+          <div class="col-3@md bgmilk" :class='{ showfilter: showfilterVar }'>
               <!-- start sidebar content -->
 
  <!-- start sidebar content -->
@@ -256,6 +256,8 @@
               </div>
             <!-- start main content -->
             <nav class="s-tabs padding-top-sm padding-left-sm">
+              <a v-if='!showfilterVar' class="text-sm margin-x-xs padding-bottom-md themfilter" @click='showfilter'>> 顯示篩選</a>
+              <a v-if='showfilterVar' class="text-sm margin-x-xs padding-bottom-md themfilter" @click='closefilter'>< 隱藏篩選</a>
               <ul class="s-tabs__list">
                 <li><nuxt-link class="s-tabs__item--selected" to="/school-type/boarding-school">寄宿學校</nuxt-link></li>
                 <li><nuxt-link  to="/school-type/foundation/step2">大學基礎班</nuxt-link></li>
@@ -385,6 +387,11 @@
 import Cookies from 'js-cookie'
 import { mapMutations } from 'vuex' 
 export default {
+  head() {
+    return {
+       title: '寄宿學校｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,
@@ -395,7 +402,8 @@ export default {
        showing: 10,
        arraylength: 0,
        universities: [],
-       loading: true
+       loading: true,
+       showfilterVar: false
   
 
     }
@@ -425,6 +433,12 @@ export default {
     }),
     showmore(){
       this.showing = this.showing + 10
+    },
+    showfilter(){
+      this.showfilterVar = true
+    },
+    closefilter(){
+      this.showfilterVar = false
     },
     checkcount( temp2 ) {
        

@@ -10,7 +10,7 @@
                             <div>
    
                               <img v-if='article.image' class='floatl margin-right-md margin-bottom-md' :src="backendurl2 + article.image.url" height="80">
-                              <h4 class="color-primary floath"><span class="padding-left-xxxs"></span>{{ article.name }}</span></h4>
+                              <h1 class="text-md color-primary floath"><span class="padding-left-xxxs"></span>{{ article.name }}</span></h1>
                             </div>
                             <div style="clear:both"></div>
                           
@@ -347,7 +347,7 @@ Or Any special A Level subject that other school doesn’t offer
                       
                       </div>
                       <div class="col-4@md">
-                              <a :href="frontendurl + 'apply'" class="margin-top-lg width-100% btn btn--accent padding-y-sm">立即查詢</a>
+                              <a :href="frontendurl + 'apply'" class="margin-top-lg width-100% btn btn--accent padding-y-sm theapply">立即查詢</a>
                             <div data-theme="reverse" class="padding-x-md padding-y-sm margin-top-sm">
                                 <p>學校資料</p>
                             </div>
@@ -455,6 +455,11 @@ export default {
 
   components:{
     featureSchools
+  },
+  head() {
+    return {
+       title: this.article.name + '｜LINKEDU 領優教育'
+    }
   },
 data(){
     return{

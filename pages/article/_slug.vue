@@ -138,6 +138,11 @@
 </template>
 <script>  
 export default {  
+  head() {
+    return {
+       title: this.article.title + '｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,

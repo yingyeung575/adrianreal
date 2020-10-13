@@ -11,14 +11,14 @@
               
               <nav class="main-footer__nav">
                 <ul class="main-footer__nav-list">
-                  <li class="main-footer__nav-item">
+                  <li class="main-footer__nav-item nomobile">
                     
                     <div v-for='(area,idx) in menu.footer1' :key='idx'><a :href="area.linkslug">{{ area.label }}</a></div>
                 
 
                   </li>
         
-                  <li class="main-footer__nav-item">
+                  <li class="main-footer__nav-item nomobile">
                     <h5>英國升學攻略</h5>
                     <div v-for='(area,idx) in menu.footer2' :key='idx'><a :href="area.linkslug">{{ area.label }}</a></div>
                   </li>

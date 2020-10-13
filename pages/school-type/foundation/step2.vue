@@ -163,19 +163,6 @@
             <!-- start main -->
   <main style="width:100%" id='rightside'>
 
-              <div class="select reorder " v-if="filteredList!=''">
-                  <select class="select__input form-control" name="selectThis" id="selectThis" v-model="sort">
- 
-                      <option value="rankhigh">科目排名（高至低）</option>
-                      <option value="ranklow">科目排名（低至高）</option>
-                      <option value="feehigh">學費（高至低）</option>
-                      <option value="feelow">學費（低至高）</option>
-  
-                   
-                  </select>
-                  
-                  <svg class="icon select__icon" aria-hidden="true" viewBox="0 0 16 16"><g stroke-width="1" stroke="currentColor"><polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="15.5,4.5 8,12 0.5,4.5 "></polyline></g></svg>
-              </div>
             <!-- start main content -->
             <nav class="s-tabs padding-top-sm padding-left-sm">
               <ul class="s-tabs__list">
@@ -302,6 +289,11 @@
 <script>
 import { mapMutations } from 'vuex' 
 export default {
+  head() {
+    return {
+       title: '大學基礎班｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl : process.env.backendurl,

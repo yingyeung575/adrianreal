@@ -176,7 +176,7 @@
                     </figure>
                   </div>
                   
-                  <div class="col-6@md">
+                  <div class="col-6@md nomobile">
                     <article style='margin-bottom: 0em;' class="story grid grid-gap-md" v-for='(article,idx) in home.homevideo' :key='idx'>
                    
                             <div class="story__img noborderadius col-4@md">
@@ -483,14 +483,73 @@
                   </div>
                 </section>
 
+  <!-- pop up -->
+
+<div v-if='showpop' class="modal modal--full-screen js-modal modal--is-visible" id="modal4" data-animation="on">
+   <div class="modal__content" role="alertdialog" tabindex="-1" aria-labelledby="modalTitle1" aria-describedby="modalDescription1">
+      <header class="modal__header">
+         <h4 class="text-truncate" id="modalTitle1"></h4>
+         <button @click='closepop' class="reset modal__close-btn js-modal__close jclose2">
+            <svg class="icon" viewBox="0 0 20 20">
+               <title>Close modal window</title>
+               <polygon points="18.707 2.707 17.293 1.293 10 8.586 2.707 1.293 1.293 2.707 8.586 10 1.293 17.293 2.707 18.707 10 11.414 17.293 18.707 18.707 17.293 11.414 10 18.707 2.707"></polygon>
+            </svg>
+         </button>
+      </header>
+      <div class="modal__body bg-contrast-lower">
+         <div class="container max-width-adaptive-lg">
+            <div class="grid grid-gap-lg">
+              <div class="col-6@md text-center">
+                  <img v-if='home.popupimage' class="margin-top-md"  :src="backendurl2 + home.popupimage.url">
+               </div>
+               <div class="col-6@md text-center">
+                  <!-- col -->
+                  <div class="newsletter-card__inner">
+                     <div class="text-component text-left margin-bottom-md">
+                        <h3 class="text-xxl ">{{ home.popuptitle }}</h3>
+                         <div v-if="home.popupcontent" v-html="$md.render(home.popupcontent)"> </div> 
+        <a v-if='home.popuplink' target='_blank' :href="home.popuplink" class="f-header__btn btn btn--accent">立即報名</a>
+                     </div>
+   
+                  </div>
+                  <!-- col -->
+               </div>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+          <!-- pop up -->
 
 
 
 
 </div>
-
-
 </template>
+
+<style scoped>
+  #modal4{
+    width: 80%;
+    height: 626px;
+    margin: 0 auto;
+    position: absolute;
+    width: 1000px;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 0;
+    margin: 0;
+    opacity: 1;
+    border: 8px solid #1A1A1A;
+    background-color: #fff;
+    height: 626px;
+    overflow: hidden;
+  }
+</style>
 
 <script>
 import featureSchools from '~/components/featureSchools'
@@ -499,9 +558,7 @@ import cta from '~/components/cta'
 export default {
   head() {
     return {
-      script: [
-       /* { src: 'js/home.js' , defer: true, body: true } */
-      ]
+       title: '英國升學 - LINKEDU 領優教育'
     }
   },
   components:{
@@ -513,8 +570,21 @@ export default {
     return{
        backendurl2 : process.env.backendurl2,
        backendurl : process.env.backendurl,
-       frontendurl : process.env.frontendurl
+       frontendurl : process.env.frontendurl,
+       showpop: true
     }
+  },
+  methods:{
+    closepop(){
+      this.showpop = false
+    }
+  },
+  mounted(){
+   
+    setTimeout(function () {
+      this.showpop = true; 
+    }.bind(this),3000) 
+    
   },
   async asyncData({ $axios,query }) {
 

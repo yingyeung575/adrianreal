@@ -380,6 +380,11 @@
 import testimonials from '~/components/testimonials'
 import cta from '~/components/cta'
 export default {
+  head() {
+    return {
+       title: '關於我們｜LINKEDU 領優教育'
+    }
+  },
   components:{
 
     testimonials,
@@ -424,12 +429,3 @@ export default {
 }
 
 </script>
-
-<style>
-    .wwspecial{
-        width: 19%;
-        margin-left: 0.5%;
-        float: right;
-        margin-right: 0.5%;
-    }
-</style>

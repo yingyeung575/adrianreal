@@ -301,6 +301,11 @@
 <script>
 import { mapMutations } from 'vuex' 
 export default {
+  head() {
+    return {
+       title: '請選擇學校類型｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl : process.env.backendurl,

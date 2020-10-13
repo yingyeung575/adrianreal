@@ -58,6 +58,11 @@ export default {
   components:{
     subjects
   },
+  head() {
+    return {
+       title: '常見問題｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl : process.env.backendurl,

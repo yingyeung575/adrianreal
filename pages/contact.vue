@@ -56,11 +56,11 @@
             
                 <div class="margin-bottom-sm">
                   <label class="form-label margin-bottom-xxs" for="contactEmail">電郵</label>
-                  <input class="form-control width-100%" type="email" v-model='contactEmail' name="contactEmail" id="contactEmail">
+                  <input class="form-control width-100%" type="email" v-model='contactEmail' name="contactEmail" id="contactEmail" required>
                 </div>
                 <div class="margin-bottom-sm">
                         <label class="form-label margin-bottom-xxs" for="contactPhone">電話</label>
-                        <input class="form-control width-100%" type="text" v-model='contactPhone' name="contactPhone" id="contactPhone">
+                        <input class="form-control width-100%" type="text" v-model='contactPhone' name="contactPhone" id="contactPhone" required>
                       </div>           
                 <div class="margin-bottom-sm">
                   <label class="form-label margin-bottom-xxs" for="contactMessage">信息</label>
@@ -68,9 +68,9 @@
                 </div>
               
                 <div class="text-right" v-if='!isSubmit'>
-                  <button class="btn btn--primary" type="submit">提交</button>
+                  <button class="btn btn--primary">提交</button>
                 </div>
-                <h3 class="margin-bottom-sm" v-if='isSubmit'>謝謝你的提交！我們會盡快聯絡你！</h3>
+                <h3 class="margin-bottom-sm jalertmsg" v-if='isSubmit'>謝謝你的提交！我們會盡快聯絡你！</h3>
               </form>
             </div>
           </div>
@@ -95,6 +95,9 @@ export default {
   },
   data() {
     return {
+     backendurl2 : process.env.backendurl2,
+       backendurl : process.env.backendurl,
+       frontendurl : process.env.frontendurl,
       contactName: '',
       contactEmail: '',
       contactPhone: '',
@@ -106,12 +109,14 @@ export default {
     return {
       script: [
         { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAwutFTptdqFWUYqkbIplagTm1aYqzDArc&callback=initGoogleMap' , defer: true, body: true } 
-      ]
+      ],
+      title: '聯絡我們｜LINKEDU 領優教育'
     }
   },
   methods: {
+  
     async addContact() {
-      await this.$axios.$post('http://whostsite.com/contacts',{
+      await this.$axios.$post(process.env.backendurl+'contacts',{
         name: this.contactName,
         email: this.contactEmail,
         phone: this.contactPhone,

@@ -80,6 +80,11 @@
 
 <script>  
 export default {  
+  head() {
+    return {
+       title: '最新消息 + 截止報名日期｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl : process.env.backendurl,

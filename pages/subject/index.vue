@@ -45,6 +45,11 @@ export default {
   components:{
     subjects
   },
+  head() {
+    return {
+       title: '熱門科目 - LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,

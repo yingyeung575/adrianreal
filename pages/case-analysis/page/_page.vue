@@ -77,6 +77,11 @@
 
 <script>  
 export default {  
+  head() {
+    return {
+       title: '過往學生分享｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl : process.env.backendurl,

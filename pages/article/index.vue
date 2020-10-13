@@ -129,6 +129,11 @@
 
 <script>  
 export default {  
+  head() {
+    return {
+       title: '升學攻略｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,

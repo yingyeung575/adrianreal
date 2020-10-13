@@ -94,6 +94,11 @@ export default {
   components:{
     subjects
   },
+  head() {
+    return {
+       title: this.article.name + '｜LINKEDU 領優教育'
+    }
+  },
   data(){
     return{
        backendurl2 : process.env.backendurl2,
